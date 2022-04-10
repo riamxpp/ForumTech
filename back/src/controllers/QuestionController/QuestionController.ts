@@ -1,16 +1,19 @@
 import { Request, Response } from "express";
-const QuestionModel = require("../models/Questions/Questions");
-const { currentDate } = require("../util/DataAtual");
+import { InterfaceSaveQuestion } from "./InterfaceQuestionController";
+const QuestionModel = require("../../models/Questions/Questions");
+const { currentDate } = require("../../util/DataAtual");
 
 class QuestionController {
   async saveQuestion(req: Request, res: Response) {
-    const { name, language, pergunta } = req.body;
-    const objectQuestionCompleted = {
+    const { idUser, name, language, pergunta } = req.body;
+    const objectQuestionCompleted: InterfaceSaveQuestion = {
+      idUser,
       name,
       language,
       pergunta,
       date: currentDate(),
     };
+
     const value = await QuestionModel.createQuestion(objectQuestionCompleted);
     return res.json(value);
   }

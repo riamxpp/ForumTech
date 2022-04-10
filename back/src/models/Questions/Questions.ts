@@ -5,8 +5,9 @@ class QuestionsModel {
   async createQuestion(question: InterfaceQuestion) {
     const conn = await connection();
     const sql =
-      "INSERT INTO questions (name, language, pergunta, data) VALUES (?, ?, ?, ?);";
+      "INSERT INTO questions (idUser, name, language, pergunta, data) VALUES (?, ?, ?, ?, ?);";
     const values = [
+      question.idUser,
       question.name,
       question.language,
       question.pergunta,

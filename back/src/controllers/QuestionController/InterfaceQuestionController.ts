@@ -1,4 +1,4 @@
-export interface InterfaceQuestion {
+export interface InterfaceSaveQuestion {
   idUser: number;
   name: string;
   language: string;
