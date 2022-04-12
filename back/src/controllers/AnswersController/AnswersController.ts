@@ -5,6 +5,7 @@ import {
 } from "./InterfaceAnswerController";
 const AnswersModel = require("../../models/Answers/Answers");
 const { currentDate } = require("../../util/DataAtual");
+const Questions = require("../QuestionController/QuestionController");
 
 class AnswersController {
   async saveAnswer(req: Request, res: Response) {
@@ -16,6 +17,7 @@ class AnswersController {
       answer,
       data: currentDate(),
     });
+    await Questions.updateNumberOfQuestion(idQuestion);
     return res.json(resultado);
   }
 

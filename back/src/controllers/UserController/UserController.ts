@@ -10,6 +10,7 @@ class UserController {
       email,
       senha,
     });
+
     if (dados.error) {
       return res.json(dados.message);
     } else {

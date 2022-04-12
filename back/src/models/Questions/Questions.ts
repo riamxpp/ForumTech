@@ -1,4 +1,7 @@
-import { InterfaceQuestion } from "./InterfaceQuestions";
+import {
+  InterfaceQuestion,
+  InterfaceUpdateNumberOfComments,
+} from "./InterfaceQuestions";
 import { connection } from "../../database";
 
 class QuestionsModel {
@@ -23,6 +26,31 @@ class QuestionsModel {
     const sql2 = "DELETE FROM answer WHERE idQuestion = ?";
     await conn.query(sql, idQuestion);
     await conn.query(sql2, idQuestion);
+  }
+
+  async takeNumberOfComments(idQuestion: number) {
+    const conn = await connection();
+    const sql = "SELECT * FROM answer WHERE idQuestion = ?";
+    return await conn.query(sql, idQuestion);
+  }
+
+  async updateNumberOfComments(question: InterfaceUpdateNumberOfComments) {
+    const conn = await connection();
+    const sql = "UPDATE questions SET numberComments = ? WHERE id = ?";
+    const values = [question.numberComments, question.idQuestion];
+    return await conn.query(sql, values);
+  }
+
+  async getAllUserLike(idUser: number) {
+    const conn = await connection();
+    const sql = "SELECT * FROM userinteraction WHERE idUser = ?";
+    return await conn.query(sql, idUser);
+  }
+
+  async getAllQuestionsComments(idQuestion: number) {
+    const conn = await connection();
+    const sql = "SELECT * FROM answer WHERE idQuestion = ?";
+    return await conn.query(sql, idQuestion);
   }
 }
 

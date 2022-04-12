@@ -1,4 +1,5 @@
 import {
+  InterfaceAddLikeOnProject,
   InterfaceMessagesUser,
   InterfaceUserModel,
 } from "./InterfaceUserModel";
@@ -9,12 +10,12 @@ class UserModel {
     const informacoes: InterfaceMessagesUser = { message: "", error: false };
     const conn = await connection();
     const sql = "INSERT INTO user (name, email, senha) VALUES (?, ?, ?)";
-    const sqlVerificaEmai = "SELECT email FROM user WHERE email = ?";
+    const sqlVerificaEmail = "SELECT email FROM user WHERE email = ?";
     const values = [user.name, user.email, user.senha];
 
-    const resultVerificaEmail = await conn.query(sqlVerificaEmai, values[1]);
+    const resultVerificaEmail = await conn.query(sqlVerificaEmail, user.email);
 
-    if (resultVerificaEmail[0][0].email) {
+    if (resultVerificaEmail[0][0]) {
       informacoes.message = "Email já cadastrado";
       informacoes.error = true;
     } else {
@@ -31,9 +32,9 @@ class UserModel {
     const sqlDeleteQuestion = "DELETE FROM questions WHERE idUser = ?";
     const sqlDeleteAnswer = "DELETE FROM answer WHERE idUser = ?";
     // Apaga o usuario e todas as perguntas e respostas do usuairo;
-    const query1 = await conn.query(sqlDeleteUser, idUser);
-    const query2 = await conn.query(sqlDeleteQuestion, idUser);
-    const query3 = await conn.query(sqlDeleteAnswer, idUser);
+    await conn.query(sqlDeleteUser, idUser);
+    await conn.query(sqlDeleteQuestion, idUser);
+    await conn.query(sqlDeleteAnswer, idUser);
   }
 
   async loginUser(email: string, senha: string) {

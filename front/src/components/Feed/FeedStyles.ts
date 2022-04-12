@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../colors";
 
 const FeedSection = styled.section`
   width: 65rem;

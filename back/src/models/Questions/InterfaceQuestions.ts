@@ -5,3 +5,8 @@ export interface InterfaceQuestion {
   pergunta: string;
   date: Date;
 }
+
+export interface InterfaceUpdateNumberOfComments {
+  numberComments: number;
+  idQuestion: number;
+}

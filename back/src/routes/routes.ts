@@ -7,6 +7,8 @@ const User = require("../controllers/UserController/UserController");
 
 routes.post("/save-question", Questions.saveQuestion);
 routes.post("/remove-question", Questions.removeQuestion);
+routes.get("/pega-comentarios", Questions.numberOfQuestion);
+routes.get("/pega-quantidade-comentarios", Questions.numberOfCommented);
 
 routes.post("/adicionar-resposta", Answers.saveAnswer);
 routes.post("/remover-resposta", Answers.removeAnswer);

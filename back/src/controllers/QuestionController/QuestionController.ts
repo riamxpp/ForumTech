@@ -23,6 +23,26 @@ class QuestionController {
     await QuestionModel.deleteQuestion(idQuestion);
     return res.json("Removido com sucesso!");
   }
+
+  async numberOfQuestion(idQuestion: number) {
+    const resultado = await QuestionModel.takeNumberOfComments(idQuestion);
+    return resultado[0].length;
+  }
+
+  async updateNumberOfQuestion(idQuestion: number) {
+    const numberComments = await this.numberOfQuestion(idQuestion);
+    const resultado = await QuestionModel.updateNumberOfComments({
+      numberComments,
+      idQuestion,
+    });
+    return resultado;
+  }
+
+  async numberOfCommented(req: Request, res: Response) {
+    const { idQuestion } = req.body;
+    const resultado = await QuestionModel.getAllQuestionsComments(idQuestion);
+    return res.json(resultado[0].length);
+  }
 }
 
 module.exports = new QuestionController();
