@@ -1,13 +1,15 @@
 // import express from "express";
 const express = require("express");
-import routes from "./routes/routes";
+const routesGlobal = require("./routes/routes");
 const app = express();
 const port = 3333;
+const cors = require("cors");
 
+app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(routes);
+app.use(routesGlobal);
 
 app.listen(port, () => {
   console.log("Servidor iniciado!");

@@ -41,6 +41,12 @@ class QuestionsModel {
     return await conn.query(sql, values);
   }
 
+  async getQuestions() {
+    const conn = await connection();
+    const sql = "SELECT * FROM questions";
+    return await conn.query(sql);
+  }
+
   async getAllUserLike(idUser: number) {
     const conn = await connection();
     const sql = "SELECT * FROM userinteraction WHERE idUser = ?";

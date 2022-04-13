@@ -6,9 +6,10 @@ const QuestionArticle = styled.article`
   width: 100%;
   height: 8rem;
   background-color: ${colors.primary};
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   border-bottom: 0.1px solid ${colors.secondary};
-  display: flex;
+  /* display: flex; */
+  cursor: pointer;
 `;
 
 const ContainerInfoQuestions = styled.div`

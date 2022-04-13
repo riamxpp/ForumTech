@@ -43,6 +43,11 @@ class QuestionController {
     const resultado = await QuestionModel.getAllQuestionsComments(idQuestion);
     return res.json(resultado[0].length);
   }
+
+  async getAllQuestions(req: Request, res: Response) {
+    const resultado = await QuestionModel.getQuestions();
+    return res.json(resultado[0]);
+  }
 }
 
 module.exports = new QuestionController();
