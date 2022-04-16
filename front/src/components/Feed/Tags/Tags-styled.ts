@@ -12,6 +12,7 @@ const SeguraTags = styled.div`
   background: ${colors.primary};
   border-radius: 2px;
   padding: 1rem;
+  box-shadow: 1px 0px 6px rgb(0 0 0 / 70%);
 `;
 
 const TituloTags = styled.h2``;

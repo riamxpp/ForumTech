@@ -37,7 +37,8 @@ const Question = (props: PropsQuestionsInterface) => {
             </ListaTags>
             <QuantidadeComentarios>
               <ImageComments src={comments} />
-              {props.numberComments}{" "}
+              {props.numberComments}
+              {"  "}
             </QuantidadeComentarios>
           </ContainerQuestion>
         </ContainerInfoQuestions>

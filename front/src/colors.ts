@@ -4,4 +4,5 @@ export const colors = {
   tertiary: "#7F7271",
   bkColor: "#254EDB",
   textColor: "#333",
+  errorColor: "#DB2C2C",
 };

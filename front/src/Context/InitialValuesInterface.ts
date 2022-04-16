@@ -1,3 +1,4 @@
+import { UserInterfaceCadastro } from "../components/Cadastro/InterfaceCadastro";
 import {
   ErrorInterface,
   QuestionInterface,
@@ -20,4 +21,6 @@ export interface InitialValuesInterface {
   setUser: () => void;
   getQuestions: () => any;
   getRespostaDeUmaPergunta: (idQuestion: number) => void;
+  createUser: (user: UserInterfaceCadastro) => void;
+  loginUser: (email: string, senha: string) => void;
 }

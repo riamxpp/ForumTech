@@ -66,11 +66,13 @@ const Tag = styled.li`
 const QuantidadeComentarios = styled.div`
   display: flex;
   align-items: center;
+  color: ${colors.textColor};
 `;
 
 const ImageComments = styled.img`
   width: 1rem;
   height: 1rem;
+  margin: 5px 5px 0 0;
 `;
 
 const ContainerLike = styled.div`

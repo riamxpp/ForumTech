@@ -9,6 +9,7 @@ import {
 } from "./ForumIterface";
 import initialValues from "./InitialValues";
 import api from "../api";
+import { UserInterfaceCadastro } from "../components/Cadastro/InterfaceCadastro";
 
 export const ForumContext = createContext<ForumTech>(initialValues);
 
@@ -59,6 +60,45 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
     }
   };
 
+  const createUser = (user: UserInterfaceCadastro) => {
+    const name = user.name,
+      email = user.email,
+      senha = user.senha;
+    api
+      .post("/create-user", { name, email, senha })
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((err) => {
+        setError({
+          currentError: true,
+          nameError: "Error ao cadastrar usuário!",
+        });
+      });
+  };
+
+  const loginUser = async (email: string, senha: string) => {
+    setError({
+      currentError: false,
+      nameError: "",
+    });
+    api
+      .post("/login-user", { email, senha })
+      .then((response) => {
+        setError({
+          currentError: response.data.error,
+          nameError: response.data.message,
+        });
+      })
+      .catch((err) => {
+        setError({
+          currentError: true,
+          nameError: "Error ao fazer Login!",
+        });
+      });
+  };
+
   return (
     <ForumContext.Provider
       value={{
@@ -76,6 +116,8 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
         setUser,
         getQuestions,
         getRespostaDeUmaPergunta,
+        createUser,
+        loginUser,
       }}
     >
       {children}

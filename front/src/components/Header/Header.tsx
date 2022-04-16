@@ -28,6 +28,16 @@ const Header = () => {
               About
             </Link>
           </ItemListaHeader>
+          <ItemListaHeader>
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          </ItemListaHeader>
+          <ItemListaHeader>
+            <Link className="link" to="/register">
+              Register
+            </Link>
+          </ItemListaHeader>
         </ListaHeader>
       </NavHeader>
     </HeaderComponente>

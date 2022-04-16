@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { UserInterfaceCadastro } from "../components/Cadastro/InterfaceCadastro";
 
 export interface ForumTechProps {
   children: ReactNode;
@@ -34,6 +35,11 @@ export interface User {
   email: string;
 }
 
+export interface LoginUser {
+  message: "";
+  error: boolean;
+}
+
 export interface ForumTech {
   questions: QuestionInterface[];
   setQuestions: (value: QuestionInterface[]) => void;
@@ -49,4 +55,6 @@ export interface ForumTech {
   setUser: (value: User) => void;
   getQuestions: () => Promise<QuestionInterface[]>;
   getRespostaDeUmaPergunta: (idQuestion: number) => void;
+  createUser: (user: UserInterfaceCadastro) => void;
+  loginUser: (email: string, senha: string) => void;
 }
