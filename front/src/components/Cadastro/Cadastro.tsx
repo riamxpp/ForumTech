@@ -17,7 +17,6 @@ function Cadastro() {
   const [errorForm, setErrorForm] = useState("");
   const { createUser, user } = useContext(ForumContext);
   const navigate = useNavigate();
-  console.log("login: ", user);
 
   useEffect(() => {
     if (user.id) {

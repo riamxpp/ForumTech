@@ -14,6 +14,8 @@ const DeixarResposta = () => {
 
   function mandaDados(event: React.MouseEvent<HTMLFormElement>) {
     event.preventDefault();
+    enviaResposta(question.id, user.id, user.name, userResposta);
+    getRespostaDeUmaPergunta(question.id);
   }
 
   return (
