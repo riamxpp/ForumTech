@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   HeaderComponente,
   ListaHeader,
@@ -7,8 +7,10 @@ import {
   ItemLogoHeader,
 } from "./HeaderStyle";
 import { Link } from "react-router-dom";
+import { ForumContext } from "../../Context/ForumContext";
 
 const Header = () => {
+  const { user } = useContext(ForumContext);
   return (
     <HeaderComponente>
       <NavHeader>
@@ -28,16 +30,26 @@ const Header = () => {
               About
             </Link>
           </ItemListaHeader>
-          <ItemListaHeader>
-            <Link className="link" to="/login">
-              Login
-            </Link>
-          </ItemListaHeader>
-          <ItemListaHeader>
-            <Link className="link" to="/register">
-              Register
-            </Link>
-          </ItemListaHeader>
+          {user.id ? (
+            <ItemListaHeader>
+              <Link className="link" to="/">
+                {user.name}
+              </Link>
+            </ItemListaHeader>
+          ) : (
+            <>
+              <ItemListaHeader>
+                <Link className="link" to="/login">
+                  Login
+                </Link>
+              </ItemListaHeader>
+              <ItemListaHeader>
+                <Link className="link" to="/register">
+                  Register
+                </Link>
+              </ItemListaHeader>
+            </>
+          )}
         </ListaHeader>
       </NavHeader>
     </HeaderComponente>
@@ -45,3 +57,14 @@ const Header = () => {
 };
 
 export default Header;
+
+// <ItemListaHeader>
+//             <Link className="link" to="/login">
+//               Login
+//             </Link>
+//           </ItemListaHeader>
+//           <ItemListaHeader>
+//             <Link className="link" to="/register">
+//               Register
+//             </Link>
+//           </ItemListaHeader>
