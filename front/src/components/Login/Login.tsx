@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Input, Button } from "reactstrap";
 import { LoginSection, LoginForm, TituloLogin } from "./LoginStyle";
@@ -6,12 +6,20 @@ import Header from "../Header/Header";
 import { DivError } from "../Cadastro/CadastroStyle";
 import * as yup from "yup";
 import { ForumContext } from "../../Context/ForumContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [errorLogin, setErrorLogin] = useState("");
-  const { loginUser, error, setError } = useContext(ForumContext);
+  const { loginUser, error, setError, user } = useContext(ForumContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user.id) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const schema = yup.object().shape({
     email: yup

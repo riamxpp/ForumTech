@@ -27,6 +27,7 @@ class UserController {
   async loginUser(req: Request, res: Response) {
     const { email, senha } = req.body;
     const resultado = await userModel.loginUser(email, senha);
+
     if (resultado.error) {
       return res.status(404).json(resultado);
     }

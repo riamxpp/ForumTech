@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import { colors } from "../../../../colors";
-import { InterfaceSeguraRespostaImage } from "./SeguraRespostaInterface";
+import {
+  InterfaceSeguraRespostaBorder,
+  InterfaceSeguraRespostaImage,
+} from "./SeguraRespostaInterface";
 
-const SeguraRespostaContainerInfo = styled.article`
+const SeguraRespostaContainerInfo = styled.article<InterfaceSeguraRespostaBorder>`
+  border-top: ${(props) =>
+    props.borderTop ? `1px solid ${colors.tertiary}` : ""};
   border-bottom: 1px solid ${colors.tertiary};
   padding: 1rem 0;
 `;

@@ -9,6 +9,4 @@ const PerguntaSection = styled.section`
   background: ${colors.primary};
 `;
 
-const RespostasTitulo = styled.h2``;
-
-export { PerguntaSection, RespostasTitulo };
+export { PerguntaSection };

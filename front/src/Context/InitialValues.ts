@@ -44,5 +44,11 @@ const initialValues: InitialValuesInterface = {
   getRespostaDeUmaPergunta: () => {},
   createUser: () => {},
   loginUser: (email: string, senha: string) => {},
+  enviaResposta: (
+    idQuestion: number,
+    idUser: number,
+    name: string,
+    answer: string
+  ) => {},
 };
 export default initialValues;

@@ -67,7 +67,6 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
     api
       .post("/create-user", { name, email, senha })
       .then((response) => {
-        console.log(response);
         return response;
       })
       .catch((err) => {
@@ -83,19 +82,31 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
       currentError: false,
       nameError: "",
     });
+
     api
       .post("/login-user", { email, senha })
       .then((response) => {
-        setError({
-          currentError: response.data.error,
-          nameError: response.data.message,
-        });
+        setUser(response.data.user);
       })
       .catch((err) => {
         setError({
           currentError: true,
           nameError: "Error ao fazer Login!",
         });
+      });
+  };
+
+  const enviaResposta = (
+    idQuestion: number,
+    idUser: number,
+    name: string,
+    answer: string
+  ) => {
+    api
+      .post("/adicionar-resposta", { idQuestion, idUser, name, answer })
+      .then((response) => console.log(response))
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -118,6 +129,7 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
         getRespostaDeUmaPergunta,
         createUser,
         loginUser,
+        enviaResposta,
       }}
     >
       {children}

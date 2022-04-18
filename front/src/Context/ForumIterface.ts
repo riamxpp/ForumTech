@@ -57,4 +57,10 @@ export interface ForumTech {
   getRespostaDeUmaPergunta: (idQuestion: number) => void;
   createUser: (user: UserInterfaceCadastro) => void;
   loginUser: (email: string, senha: string) => void;
+  enviaResposta: (
+    idQuestion: number,
+    idUser: number,
+    name: string,
+    answer: string
+  ) => void;
 }

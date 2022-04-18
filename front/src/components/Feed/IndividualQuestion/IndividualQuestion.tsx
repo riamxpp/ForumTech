@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { ForumContext } from "../../../Context/ForumContext";
 import Header from "../../Header/Header";
 import DeixarResposta from "./DeixarResposta/DeixarResposta";
-import { PerguntaSection, RespostasTitulo } from "./IndividualQuestionStyle";
+import { PerguntaSection } from "./IndividualQuestionStyle";
 import SeguraIndividualQuestion from "./SeguraIndividualQuestion/SeguraIndividualQuestion";
 import SeguraResposta from "./SeguraResposta/SeguraResposta";
 
@@ -27,10 +27,10 @@ const IndividualQuestion = () => {
           pergunta={question.pergunta}
           data={question.data}
         ></SeguraIndividualQuestion>
-        <RespostasTitulo>Respostas: </RespostasTitulo>
         {respostas &&
-          respostas.map((item) => (
+          respostas.map((item, index) => (
             <SeguraResposta
+              index={index}
               key={item.id}
               name={item.name}
               resposta={item.answer}

@@ -2,6 +2,7 @@ import {
   InterfaceAddLikeOnProject,
   InterfaceMessagesUser,
   InterfaceUserModel,
+  User,
 } from "./InterfaceUserModel";
 const { connection } = require("../../database/index");
 
@@ -40,19 +41,20 @@ class UserModel {
   async loginUser(email: string, senha: string) {
     const informacoes: InterfaceMessagesUser = { message: "", error: false };
     const conn = await connection();
-    const sqlEmail = "SELECT email FROM user WHERE email = ?";
+    const sqlEmail = "SELECT id, name, email FROM user WHERE email = ?";
     const sqlSenha = "SELECT senha FROM user WHERE senha = ?";
     const resultEmail = await conn.query(sqlEmail, email);
     const resultSenha = await conn.query(sqlSenha, senha);
 
     if (resultEmail[0][0] && resultSenha[0][0]) {
       informacoes.error = false;
-      informacoes.message = "Login feito com sucesso!";
+      informacoes.message = "Usuário logado com sucesso!";
+      informacoes.user = resultEmail[0][0];
     } else {
       informacoes.error = true;
       informacoes.message = "Nenhum usuário encontrado!";
+      informacoes.user = { id: 0, name: "", email: "" };
     }
-
     return informacoes;
   }
 }

@@ -15,7 +15,7 @@ import { InterfacePropsSeguraResposta } from "./SeguraRespostaInterface";
 const SeguraResposta = (props: InterfacePropsSeguraResposta) => {
   return (
     <>
-      <SeguraRespostaContainerInfo>
+      <SeguraRespostaContainerInfo borderTop={props.index === 0}>
         <SeguraRespostaContainer>
           <SeguraRespostaImagem bkImage={Perfil}></SeguraRespostaImagem>
           <SeguraRespostaInfo>

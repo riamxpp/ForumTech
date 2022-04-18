@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Input } from "reactstrap";
 import Header from "../Header/Header";
 import {
@@ -8,13 +8,22 @@ import {
 } from "./CadastroStyle";
 import * as yup from "yup";
 import { ForumContext } from "../../Context/ForumContext";
+import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [errorForm, setErrorForm] = useState("");
-  const { createUser } = useContext(ForumContext);
+  const { createUser, user } = useContext(ForumContext);
+  const navigate = useNavigate();
+  console.log("login: ", user);
+
+  useEffect(() => {
+    if (user.id) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const schema = yup.object().shape({
     name: yup.string().required("O campo name é obrigatório!"),

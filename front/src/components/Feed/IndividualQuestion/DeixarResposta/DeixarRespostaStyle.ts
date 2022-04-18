@@ -7,6 +7,8 @@ const DeixarRespostaForm = styled.form`
   margin-top: 1rem;
 `;
 
+const TituloComentar = styled.h3``;
+
 const DeixarRespostaText = styled.textarea`
   width: 35rem;
   height: 10rem;
@@ -29,4 +31,9 @@ const DeixarRespostaButton = styled.button`
   cursor: pointer;
 `;
 
-export { DeixarRespostaForm, DeixarRespostaText, DeixarRespostaButton };
+export {
+  DeixarRespostaForm,
+  TituloComentar,
+  DeixarRespostaText,
+  DeixarRespostaButton,
+};

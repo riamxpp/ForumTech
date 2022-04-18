@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ForumContext } from "../../../../Context/ForumContext";
 import {
   DeixarRespostaButton,
   DeixarRespostaForm,
   DeixarRespostaText,
+  TituloComentar,
 } from "./DeixarRespostaStyle";
 
 const DeixarResposta = () => {
   const [userResposta, setUserResposta] = useState("");
+  const { user, question, enviaResposta, getRespostaDeUmaPergunta } =
+    useContext(ForumContext);
 
   function mandaDados(event: React.MouseEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -14,7 +18,7 @@ const DeixarResposta = () => {
 
   return (
     <DeixarRespostaForm onSubmit={mandaDados}>
-      {userResposta}
+      <TituloComentar>Deixar resposta.</TituloComentar>
       <DeixarRespostaText
         value={userResposta}
         onChange={({ target }) => setUserResposta(target.value)}

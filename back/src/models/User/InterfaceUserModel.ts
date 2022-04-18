@@ -7,6 +7,13 @@ export interface InterfaceUserModel {
 export interface InterfaceMessagesUser {
   message: string;
   error: boolean;
+  user?: User;
+}
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
 }
 
 export interface Questions {

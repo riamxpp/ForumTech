@@ -4,6 +4,7 @@ import { InterfaceSeguraIndividualImage } from "./InterfaceSeguraIndividualQuest
 
 const SeguraIndividualQuestionContainer = styled.div`
   margin-bottom: 4rem;
+  padding: 1rem 0;
 `;
 
 const SeguraIndividualQuestionWrapper = styled.div`
