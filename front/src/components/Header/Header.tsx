@@ -31,11 +31,18 @@ const Header = () => {
             </Link>
           </ItemListaHeader>
           {user.id ? (
-            <ItemListaHeader>
-              <Link className="link" to="/">
-                {user.name}
-              </Link>
-            </ItemListaHeader>
+            <>
+              <ItemListaHeader>
+                <Link className="link" to="/">
+                  {user.name}
+                </Link>
+              </ItemListaHeader>
+              <ItemListaHeader>
+                <Link className="link" to="/adicionar-pergunta">
+                  Add pergunta
+                </Link>
+              </ItemListaHeader>
+            </>
           ) : (
             <>
               <ItemListaHeader>

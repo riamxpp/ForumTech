@@ -71,9 +71,7 @@ const Login = () => {
             }}
             id="senha"
           />
-          <Button color="primary" style={{ marginTop: "10px" }}>
-            Enviar
-          </Button>
+          <Button style={{ marginTop: "10px" }}>Enviar</Button>
           {errorLogin && <DivError>{errorLogin}</DivError>}
           {error.currentError && <DivError>{error.nameError}</DivError>}
         </LoginForm>

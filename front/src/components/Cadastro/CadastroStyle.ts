@@ -22,6 +22,15 @@ const DivError = styled.div`
   min-height: 15px;
   max-height: auto;
   color: ${colors.errorColor};
+  font-weight: bold;
 `;
 
-export { CadastroStyleSection, CadastroStyleForm, DivError };
+const DivEnviado = styled.div`
+  width: 100%;
+  min-height: 15px;
+  max-height: auto;
+  color: ${colors.correctColor};
+  font-weight: bold;
+`;
+
+export { CadastroStyleSection, CadastroStyleForm, DivError, DivEnviado };

@@ -110,6 +110,20 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
       });
   };
 
+  const enviaPergunta = (
+    idUser: number,
+    name: string,
+    language: string,
+    pergunta: string
+  ) => {
+    api
+      .post("/save-question", { idUser, name, language, pergunta })
+      .then((response) => console.log(response))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <ForumContext.Provider
       value={{
@@ -130,6 +144,7 @@ export const ForumStorage = ({ children }: ForumTechProps) => {
         createUser,
         loginUser,
         enviaResposta,
+        enviaPergunta,
       }}
     >
       {children}

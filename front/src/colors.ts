@@ -5,4 +5,5 @@ export const colors = {
   bkColor: "#254EDB",
   textColor: "#333",
   errorColor: "#DB2C2C",
+  correctColor: "#27C65F",
 };

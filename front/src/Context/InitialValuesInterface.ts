@@ -29,4 +29,11 @@ export interface InitialValuesInterface {
     name: string,
     answer: string
   ) => void;
+
+  enviaPergunta: (
+    idUser: number,
+    name: string,
+    language: string,
+    pergunta: string
+  ) => void;
 }
