@@ -7,7 +7,7 @@ const HeaderComponente = styled.header`
 `;
 
 const NavHeader = styled.nav`
-  width: 65rem;
+  width: 80%;
   height: auto;
   margin: 0 auto;
 `;
@@ -27,6 +27,9 @@ const ItemListaHeader = styled.li`
 const ItemLogoHeader = styled.li`
   font-size: 1.4rem;
   font-weight: bold;
+  @media (max-width: 700px) {
+    font-size: 1rem;
+  }
 `;
 
 export {

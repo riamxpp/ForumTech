@@ -7,6 +7,10 @@ const FeedSection = styled.section`
   margin: 0 auto;
   display: flex;
   gap: 1rem;
+  @media (max-width: 1100px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const Questions = styled.div`

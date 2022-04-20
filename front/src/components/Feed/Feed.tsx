@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Search from "./Search/Search";
 import { ForumContext } from "../../Context/ForumContext";
 import { QuestionInterface } from "../../Context/ForumIterface";
+import { BackgroundLoading, Loading } from "../../util/Loading";
 
 const Feed = () => {
   const { getQuestions, setQuestion, loading, error, questions } =
@@ -23,7 +24,12 @@ const Feed = () => {
   }
 
   if (error.currentError) return <div>Error {error.nameError}</div>;
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <BackgroundLoading>
+        <Loading></Loading>
+      </BackgroundLoading>
+    );
   return (
     <>
       <Header />

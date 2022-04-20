@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../colors";
 
 const LoginSection = styled.section`
-  width: 65rem;
+  width: 80%;
   margin: 5rem auto;
   display: flex;
   align-items: center;

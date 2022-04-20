@@ -6,9 +6,7 @@ const QuestionArticle = styled.article`
   width: 100%;
   height: 8rem;
   background-color: ${colors.primary};
-  /* flex-shrink: 0; */
   border-bottom: 0.1px solid ${colors.secondary};
-  /* display: flex; */
   cursor: pointer;
 `;
 
@@ -17,6 +15,7 @@ const ContainerInfoQuestions = styled.div`
   height: 100%;
   padding: 1rem;
   display: flex;
+  gap: 1rem;
 `;
 
 const Perfil = styled.div`
@@ -25,6 +24,9 @@ const Perfil = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 700px) {
+    width: 3rem;
+  }
 `;
 
 const FotoPerfil = styled.div<FotoBackgroundInterface>`
@@ -35,6 +37,10 @@ const FotoPerfil = styled.div<FotoBackgroundInterface>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 50%;
+  @media (max-width: 700px) {
+    width: 3rem;
+    height: 3rem;
+  }
 `;
 
 const ContainerQuestion = styled.div`
@@ -48,19 +54,26 @@ const ContainerQuestion = styled.div`
 const TituloQuestion = styled.h2`
   font-size: 1.1rem;
   color: ${colors.textColor};
+  @media (max-width: 700px) {
+    font-size: 0.9rem;
+  }
 `;
 
-const ListaTags = styled.ul`
-  list-style: none;
-  display: flex;
-  gap: 1rem;
+const ContainerTag = styled.div`
+  width: auto;
+  height: auto;
 `;
 
-const Tag = styled.li`
+const Tag = styled.span`
+  width: auto;
   background-color: yellow;
   padding: 0.1rem 0.5rem;
   border-radius: 20px;
   font-size: 1rem;
+  color: ${colors.textColor};
+  @media (max-width: 700px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const QuantidadeComentarios = styled.div`
@@ -103,7 +116,7 @@ export {
   FotoPerfil,
   ContainerQuestion,
   TituloQuestion,
-  ListaTags,
+  ContainerTag,
   Tag,
   QuantidadeComentarios,
   ImageComments,

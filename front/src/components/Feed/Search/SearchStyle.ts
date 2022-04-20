@@ -39,6 +39,9 @@ const InputSearch = styled.input`
     border: 2px solid ${colors.primary};
     outline: 1px solid ${colors.primary};
   }
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 `;
 
 const ButtonSearch = styled.button`

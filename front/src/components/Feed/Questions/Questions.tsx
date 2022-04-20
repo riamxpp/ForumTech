@@ -4,7 +4,6 @@ import {
   ContainerInfoQuestions,
   ContainerLike,
   ContainerQuestion,
-  ListaTags,
   FotoPerfil,
   Perfil,
   QuestionArticle,
@@ -12,6 +11,7 @@ import {
   TituloQuestion,
   QuantidadeComentarios,
   ImageComments,
+  ContainerTag,
 } from "./Questions-style";
 import avatar from "../../../assents/img/avatar-perfil.jpg";
 import comments from "../../../assents/img/ico-comments.png";
@@ -32,9 +32,9 @@ const Question = (props: PropsQuestionsInterface) => {
           </Perfil>
           <ContainerQuestion>
             <TituloQuestion>{props.pergunta}</TituloQuestion>
-            <ListaTags>
+            <ContainerTag>
               <Tag>{props.language}</Tag>
-            </ListaTags>
+            </ContainerTag>
             <QuantidadeComentarios>
               <ImageComments src={comments} />
               {props.numberComments}
@@ -42,9 +42,6 @@ const Question = (props: PropsQuestionsInterface) => {
             </QuantidadeComentarios>
           </ContainerQuestion>
         </ContainerInfoQuestions>
-        <ContainerLike>
-          <ButtonLike bkImage={likeClicked}>10</ButtonLike>
-        </ContainerLike>
       </Link>
     </QuestionArticle>
   );

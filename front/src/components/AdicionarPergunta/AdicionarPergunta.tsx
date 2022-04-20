@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import Header from "../Header/Header";
 import {
   AdicionarPerguntaForm,
@@ -21,7 +21,7 @@ const AdicionarPergunta = () => {
     pergunta: yup.string().required("O campo pergunta é obrigatório."),
   });
 
-  function sendDados(event: React.FormEvent<HTMLFormElement>) {
+  function sendDados(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
     schema

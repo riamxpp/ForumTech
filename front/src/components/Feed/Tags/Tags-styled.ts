@@ -4,6 +4,9 @@ import { colors } from "../../../colors";
 const TagContainer = styled.div`
   width: 25%;
   height: auto;
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const SeguraTags = styled.div`

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../colors";
 
 const CadastroStyleSection = styled.section`
-  width: 60rem;
+  width: 80%;
   height: auto;
   margin: 1rem auto;
   display: flex;
