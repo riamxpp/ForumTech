@@ -12,6 +12,5 @@
 <img src="https://user-images.githubusercontent.com/83230961/164467202-22068e82-d1c2-40ae-96ce-f9ed7acff68c.png" alt="respostas />
                                                                                                                       
 <p>Todos os campos do site possuem validações feita com yup</p> 
-[![JavaScript](https://img.shields.io/badge/--F7DF1E?logo=javascript&logoColor=000)](https://www.javascript.com/)
-[![TypeScript](https://img.shields.io/badge/--3178C6?logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/)
-[![Minimum node.js version](https://badgen.net/npm/node/express)](https://npmjs.com/package/express)
+<img src="https://img.shields.io/badge/--F7DF1E?logo=javascript&logoColor=000" />
+<img src="https://img.shields.io/badge/--3178C6?logo=typescript&logoColor=ffffff" />
